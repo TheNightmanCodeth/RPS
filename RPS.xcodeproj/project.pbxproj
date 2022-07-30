@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8D1F5AE28948550006DF828 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290DA2892FD1E002F8A2E /* ContentView.swift */; };
+		D8D1F5B028948CAE006DF828 /* PairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1F5AF28948CAE006DF828 /* PairView.swift */; };
 		D8D290D92892FD1E002F8A2E /* RPSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290D82892FD1E002F8A2E /* RPSApp.swift */; };
 		D8D290DB2892FD1E002F8A2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290DA2892FD1E002F8A2E /* ContentView.swift */; };
 		D8D290DD2892FD1F002F8A2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D290DC2892FD1F002F8A2E /* Assets.xcassets */; };
@@ -14,6 +16,10 @@
 		D8D290EB2892FD1F002F8A2E /* RPSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290EA2892FD1F002F8A2E /* RPSTests.swift */; };
 		D8D290F52892FD1F002F8A2E /* RPSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290F42892FD1F002F8A2E /* RPSUITests.swift */; };
 		D8D290F72892FD1F002F8A2E /* RPSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290F62892FD1F002F8A2E /* RPSUITestsLaunchTests.swift */; };
+		D8D291042892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291032892FD49002F8A2E /* RPSMultipeerSession.swift */; };
+		D8D291052892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291032892FD49002F8A2E /* RPSMultipeerSession.swift */; };
+		D8D291082893118C002F8A2E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291072893118C002F8A2E /* StartView.swift */; };
+		D8D291092893118C002F8A2E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291072893118C002F8A2E /* StartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8D1F5AF28948CAE006DF828 /* PairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairView.swift; sourceTree = "<group>"; };
 		D8D290D52892FD1E002F8A2E /* RPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D290D82892FD1E002F8A2E /* RPSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSApp.swift; sourceTree = "<group>"; };
 		D8D290DA2892FD1E002F8A2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +52,9 @@
 		D8D290F02892FD1F002F8A2E /* RPSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D290F42892FD1F002F8A2E /* RPSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSUITests.swift; sourceTree = "<group>"; };
 		D8D290F62892FD1F002F8A2E /* RPSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8D291032892FD49002F8A2E /* RPSMultipeerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSMultipeerSession.swift; sourceTree = "<group>"; };
+		D8D291062893034A002F8A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D8D291072893118C002F8A2E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8D1F5AD28948544006DF828 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8D290DA2892FD1E002F8A2E /* ContentView.swift */,
+				D8D291072893118C002F8A2E /* StartView.swift */,
+				D8D1F5AF28948CAE006DF828 /* PairView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D8D290CC2892FD1E002F8A2E = {
 			isa = PBXGroup;
 			children = (
@@ -95,11 +115,13 @@
 		D8D290D72892FD1E002F8A2E /* RPS */ = {
 			isa = PBXGroup;
 			children = (
+				D8D1F5AD28948544006DF828 /* Views */,
+				D8D291062893034A002F8A2E /* Info.plist */,
 				D8D290D82892FD1E002F8A2E /* RPSApp.swift */,
-				D8D290DA2892FD1E002F8A2E /* ContentView.swift */,
 				D8D290DC2892FD1F002F8A2E /* Assets.xcassets */,
 				D8D290DE2892FD1F002F8A2E /* RPS.entitlements */,
 				D8D290DF2892FD1F002F8A2E /* Preview Content */,
+				D8D291032892FD49002F8A2E /* RPSMultipeerSession.swift */,
 			);
 			path = RPS;
 			sourceTree = "<group>";
@@ -259,8 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D1F5B028948CAE006DF828 /* PairView.swift in Sources */,
 				D8D290DB2892FD1E002F8A2E /* ContentView.swift in Sources */,
+				D8D291042892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */,
 				D8D290D92892FD1E002F8A2E /* RPSApp.swift in Sources */,
+				D8D291082893118C002F8A2E /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D291092893118C002F8A2E /* StartView.swift in Sources */,
+				D8D291052892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */,
+				D8D1F5AE28948550006DF828 /* ContentView.swift in Sources */,
 				D8D290EB2892FD1F002F8A2E /* RPSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +447,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RPS/Info.plist;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -451,6 +480,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RPS/Info.plist;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

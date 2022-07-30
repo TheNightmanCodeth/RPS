@@ -11,7 +11,7 @@ import SwiftUI
 struct RPSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartView()
         }
     }
 }
