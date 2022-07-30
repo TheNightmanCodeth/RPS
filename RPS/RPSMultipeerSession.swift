@@ -9,45 +9,54 @@ import MultipeerConnectivity
 import os
 
 enum Move: String, CaseIterable {
-    case rock, paper, scissors
+    case rock, paper, scissors, unknown, pair
 }
 
 class RPSMultipeerSession: NSObject, ObservableObject {
     private let serviceType = "rps-service"
     private var myPeerID: MCPeerID
     
-    public let serviceAdvertiser: MCNearbyServiceAdvertiser
+    //public let serviceAdvertiser: MCNearbyServiceAdvertiser
     public let serviceBrowser: MCNearbyServiceBrowser
     public let session: MCSession
+    
+    public let advertiserAssistant: MCAdvertiserAssistant
     
     private let log = Logger()
     
     @Published var connectedPeer: MCPeerID? = nil
     @Published var availablePeers: [MCPeerID] = []
-    @Published var receivedMove: Move? = nil
+    @Published var receivedMove: Move = .unknown
     @Published var username: String
     @Published var recvdInvite: Bool = false
     @Published var recvdInviteFrom: MCPeerID? = nil
+    @Published var paired: Bool = false
     
     init(username: String) {
         self.username = username
-        self.myPeerID = MCPeerID(displayName: username)
-        session = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .none)
-        serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerID, discoveryInfo: nil, serviceType: serviceType)
-        serviceBrowser = MCNearbyServiceBrowser(peer: myPeerID, serviceType: serviceType)
+        let peerID = MCPeerID(displayName: username)
+        self.myPeerID = peerID
         
+        session = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .none)
+        //serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerID, discoveryInfo: nil, serviceType: serviceType)
+        serviceBrowser = MCNearbyServiceBrowser(peer: peerID, serviceType: serviceType)
+        advertiserAssistant = MCAdvertiserAssistant(serviceType: serviceType, discoveryInfo: nil, session: session)
         super.init()
         
         session.delegate = self
-        serviceAdvertiser.delegate = self
+        //serviceAdvertiser.delegate = self
         serviceBrowser.delegate = self
+        advertiserAssistant.delegate = self
+        
+        advertiserAssistant.start()
                 
-        serviceAdvertiser.startAdvertisingPeer()
+        //serviceAdvertiser.startAdvertisingPeer()
         serviceBrowser.startBrowsingForPeers()
     }
     
     deinit {
-        serviceAdvertiser.stopAdvertisingPeer()
+        //serviceAdvertiser.stopAdvertisingPeer()
+        advertiserAssistant.stop()
         serviceBrowser.stopBrowsingForPeers()
     }
     
@@ -62,8 +71,20 @@ class RPSMultipeerSession: NSObject, ObservableObject {
             }
         }
     }
+    
+    func start() {
+        if !session.connectedPeers.isEmpty {
+            log.info("Sending start ping to \(self.session.connectedPeers[0].displayName)")
+            do {
+                try session.send("Start".data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+            } catch {
+                log.error("Error sending: \(String(describing: error))")
+            }
+        }
+    }
 }
 
+/*
 extension RPSMultipeerSession: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         log.error("ServiceAdvertiser didNotStartAdvertisingPeer: \(String(describing: error))")
@@ -78,6 +99,17 @@ extension RPSMultipeerSession: MCNearbyServiceAdvertiserDelegate {
         }
     }
 }
+ */
+
+extension RPSMultipeerSession: MCAdvertiserAssistantDelegate {
+    func advertiserAssistantDidDismissInvitation(_ advertiserAssistant: MCAdvertiserAssistant) {
+        log.info("didDismissInvitation")
+    }
+    
+    func advertiserAssistantWillPresentInvitation(_ advertiserAssistant: MCAdvertiserAssistant) {
+        log.info("willPresentInvitation")
+    }
+}
 
 extension RPSMultipeerSession: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
@@ -86,10 +118,9 @@ extension RPSMultipeerSession: MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         log.info("ServiceBrowser found peer: \(peerID)")
+        
         DispatchQueue.main.async {
-            if (peerID != self.myPeerID) {
-                self.availablePeers.append(peerID)
-            }
+            self.availablePeers.append(peerID)
         }
     }
     
@@ -106,24 +137,25 @@ extension RPSMultipeerSession: MCNearbyServiceBrowserDelegate {
 extension RPSMultipeerSession: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         log.info("peer \(peerID) didChangeState: \(state.rawValue)")
-        if (connectedPeer != nil) {
-            if (peerID == connectedPeer) {
-                switch state {
-                case MCSessionState.notConnected:
-                    // Peer disconnected
-                    DispatchQueue.main.async {
-                        self.connectedPeer = nil
-                    }
-                    break
-                case MCSessionState.connected:
-                    // Peer connected
-                    break
-                default:
-                    // Peer connecting
-                    break
-                }
-                // Peer disconnected
+        switch state {
+        case MCSessionState.notConnected:
+            // Peer disconnected
+            DispatchQueue.main.async {
+                self.paired = false
             }
+            break
+        case MCSessionState.connected:
+            // Peer connected
+            DispatchQueue.main.async {
+                self.paired = true
+            }
+            break
+        default:
+            // Peer connecting
+            DispatchQueue.main.async {
+                self.paired = false
+            }
+            break
         }
     }
     
@@ -132,6 +164,13 @@ extension RPSMultipeerSession: MCSessionDelegate {
             log.info("didReceive move \(string)")
             DispatchQueue.main.async {
                 self.receivedMove = move
+            }
+        } else if let string = String(data: data, encoding: .utf8) {
+            log.info("didReceive start ping")
+            if (string == "Start") {
+                DispatchQueue.main.async {
+                    self.paired = true
+                }
             }
         } else {
             log.info("didReceive invalid value \(data.count) bytes")
@@ -148,5 +187,9 @@ extension RPSMultipeerSession: MCSessionDelegate {
     
     public func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         log.error("Receiving resources is not supported")
+    }
+    
+    public func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
+        certificateHandler(true)
     }
 }

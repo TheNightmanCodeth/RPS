@@ -20,6 +20,7 @@
 		D8D291052892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291032892FD49002F8A2E /* RPSMultipeerSession.swift */; };
 		D8D291082893118C002F8A2E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291072893118C002F8A2E /* StartView.swift */; };
 		D8D291092893118C002F8A2E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291072893118C002F8A2E /* StartView.swift */; };
+		D8E7EFE42894B58E006C0F86 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E7EFE32894B58E006C0F86 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D8D291032892FD49002F8A2E /* RPSMultipeerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSMultipeerSession.swift; sourceTree = "<group>"; };
 		D8D291062893034A002F8A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D8D291072893118C002F8A2E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		D8E7EFE32894B58E006C0F86 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				D8D290DA2892FD1E002F8A2E /* ContentView.swift */,
 				D8D291072893118C002F8A2E /* StartView.swift */,
 				D8D1F5AF28948CAE006DF828 /* PairView.swift */,
+				D8E7EFE32894B58E006C0F86 /* GameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				D8D290DB2892FD1E002F8A2E /* ContentView.swift in Sources */,
 				D8D291042892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */,
 				D8D290D92892FD1E002F8A2E /* RPSApp.swift in Sources */,
+				D8E7EFE42894B58E006C0F86 /* GameView.swift in Sources */,
 				D8D291082893118C002F8A2E /* StartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

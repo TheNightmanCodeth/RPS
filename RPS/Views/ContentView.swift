@@ -22,10 +22,9 @@ struct ContentView: View {
             }
             Spacer()
             
-            Text(rpsSession.receivedMove?.rawValue ?? "Waiting")
+            Text(rpsSession.receivedMove.rawValue)
         }
         .padding()
         .navigationTitle(rpsSession.username)
     }
 }
-
