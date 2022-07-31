@@ -8,8 +8,17 @@
 import MultipeerConnectivity
 import os
 
-enum Move: String, CaseIterable {
-    case rock, paper, scissors, unknown, pair
+enum Move: String, CaseIterable, CustomStringConvertible {
+    case rock, paper, scissors, unknown
+    
+    var description : String {
+        switch self {
+        case .rock: return "Rock"
+        case .paper: return "Paper"
+        case .scissors: return "Scissors"
+        default: return "Thinking"
+        }
+      }
 }
 
 class RPSMultipeerSession: NSObject, ObservableObject {
@@ -22,7 +31,6 @@ class RPSMultipeerSession: NSObject, ObservableObject {
         
     private let log = Logger()
     
-    @Published var connectedPeer: MCPeerID? = nil
     @Published var availablePeers: [MCPeerID] = []
     @Published var receivedMove: Move = .unknown
     @Published var recvdInvite: Bool = false
@@ -53,10 +61,10 @@ class RPSMultipeerSession: NSObject, ObservableObject {
     }
     
     func send(move: Move) {
-        if self.connectedPeer != nil {
-            log.info("sendMove: \(String(describing: move)) to \(self.connectedPeer!)")
+        if !session.connectedPeers.isEmpty {
+            log.info("sendMove: \(String(describing: move)) to \(self.session.connectedPeers[0].displayName)")
             do {
-                try session.send(move.rawValue.data(using: .utf8)!, toPeers: [self.connectedPeer!], with: .reliable)
+                try session.send(move.rawValue.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
             } catch {
                 log.error("Error sending: \(String(describing: error))")
             }
@@ -119,12 +127,16 @@ extension RPSMultipeerSession: MCSessionDelegate {
             DispatchQueue.main.async {
                 self.paired = false
             }
+            // Peer disconnected, start accepting invitaions again
+            serviceAdvertiser.startAdvertisingPeer()
             break
         case MCSessionState.connected:
             // Peer connected
             DispatchQueue.main.async {
                 self.paired = true
             }
+            // We are paired, stop accepting invitations
+            serviceAdvertiser.stopAdvertisingPeer()
             break
         default:
             // Peer connecting or something else
