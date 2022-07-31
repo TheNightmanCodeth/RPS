@@ -25,7 +25,6 @@ struct PairView: View {
                 Button("Accept invite") {
                     if (rpsSession.invitationHandler != nil) {
                         rpsSession.invitationHandler!(true, rpsSession.session)
-                        rpsSession.connectedPeer = rpsSession.recvdInviteFrom
                     }
                 }
                 Button("Reject invite") {
