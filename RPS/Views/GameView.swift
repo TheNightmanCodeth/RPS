@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum Result {
+    case win, loss, tie
+}
+
 struct GameView: View {
     @StateObject var rpsSession: RPSMultipeerSession
     
@@ -99,6 +103,38 @@ struct GameView: View {
                     .buttonStyle(BorderlessButtonStyle())
                     .padding()
             }
+        }
+    }
+    
+    func score(opponentMove: Move, ourMove: Move) -> Result {
+        switch opponentMove {
+        case .rock:
+            if ourMove == .scissors {
+                return .loss
+            } else if ourMove == .paper {
+                return .win
+            } else {
+                return .tie
+            }
+        case .paper:
+            if ourMove == .rock {
+                return .loss
+            } else if ourMove == .scissors {
+                return .win
+            } else {
+                return .tie
+            }
+        case .scissors:
+            if ourMove == .paper {
+                return .loss
+            } else if ourMove == .rock {
+                return .win
+            } else {
+                return .tie
+            }
+        default:
+            // Invalid move somewhere
+            return .tie
         }
     }
 }
