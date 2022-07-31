@@ -13,13 +13,13 @@ struct GameView: View {
     @State var timeLeft = 10
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    @State var currentMove: String = "Thinking"
-    @State var opponentMove: String = "Thinking"
+    @State var currentMove: Move = .unknown
+    @State var opponentMove: Move = .unknown
     
     var body: some View {
         VStack(alignment: .center) {
             // Opponent - 🪨 📄 ✂️
-            Image(opponentMove)
+            Image(opponentMove.description)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
@@ -38,24 +38,24 @@ struct GameView: View {
                         // Call timer.upstream.connect() to restart the timer
                         switch rpsSession.receivedMove {
                         case .rock:
-                            opponentMove = "Rock"
+                            opponentMove = .rock
                             break
                         case .paper:
-                            opponentMove = "Paper"
+                            opponentMove = .paper
                             break
                         case .scissors:
-                            opponentMove = "Scissors"
+                            opponentMove = .scissors
                             break
                         default:
                             // TODO: Invalid, big red X or something idk
-                            opponentMove = "Thinking"
+                            opponentMove = .unknown
                             break
                         }
                         //TODO: Show winning/losing screen and restart button
                     }
                 }
             // Player - Move
-            Image(currentMove)
+            Image(currentMove.description)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100)
@@ -64,7 +64,7 @@ struct GameView: View {
             // Moves - Moves
             HStack {
                 Button(action: {
-                    currentMove = "Rock"
+                    currentMove = .rock
                     rpsSession.send(move: .rock)
                 }, label: {
                     Image("Rock")
@@ -76,7 +76,7 @@ struct GameView: View {
                     .padding()
                 
                 Button(action: {
-                    currentMove = "Paper"
+                    currentMove = .paper
                     rpsSession.send(move: .paper)
                 }, label: {
                     Image("Paper")
@@ -88,7 +88,7 @@ struct GameView: View {
                     .padding()
                 
                 Button(action: {
-                    currentMove = "Scissors"
+                    currentMove = .scissors
                     rpsSession.send(move: .scissors)
                 }, label: {
                     Image("Scissors")
