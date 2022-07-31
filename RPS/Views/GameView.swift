@@ -51,6 +51,7 @@ struct GameView: View {
                             opponentMove = "Thinking"
                             break
                         }
+                        //TODO: Show winning/losing screen and restart button
                     }
                 }
             // Player - Move

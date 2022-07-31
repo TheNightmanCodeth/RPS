@@ -21,25 +21,19 @@ struct PairView: View {
                     }
                 }
             }
-            /*
             .alert("Received an invite from \(rpsSession.recvdInviteFrom?.displayName ?? "ERR")!", isPresented: $rpsSession.recvdInvite) {
                 Button("Accept invite") {
-                    rpsSession.session.nearbyConnectionData(forPeer: rpsSession.recvdInviteFrom!, withCompletionHandler: { (data, error) in
-                        if (data != nil) {
-                            rpsSession.session.connectPeer(rpsSession.recvdInviteFrom!, withNearbyConnectionData: data!)
-                            rpsSession.start()
-                            DispatchQueue.main.async {
-                                rpsSession.connectedPeer = rpsSession.recvdInviteFrom
-                                rpsSession.paired = true
-                            }
-                        } else {
-                            // Something's wrong
-                            // TODO: Tell user there was an error connecting
-                        }
-                    })
-                    
+                    if (rpsSession.invitationHandler != nil) {
+                        rpsSession.invitationHandler!(true, rpsSession.session)
+                        rpsSession.connectedPeer = rpsSession.recvdInviteFrom
+                    }
                 }
-            }*/
+                Button("Reject invite") {
+                    if (rpsSession.invitationHandler != nil) {
+                        rpsSession.invitationHandler!(false, nil)
+                    }
+                }
+            }
         } else {
             GameView(rpsSession: rpsSession)
         }

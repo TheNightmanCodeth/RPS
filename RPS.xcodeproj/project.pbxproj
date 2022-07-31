@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D8D1F5AE28948550006DF828 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290DA2892FD1E002F8A2E /* ContentView.swift */; };
 		D8D1F5B028948CAE006DF828 /* PairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1F5AF28948CAE006DF828 /* PairView.swift */; };
 		D8D290D92892FD1E002F8A2E /* RPSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290D82892FD1E002F8A2E /* RPSApp.swift */; };
-		D8D290DB2892FD1E002F8A2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290DA2892FD1E002F8A2E /* ContentView.swift */; };
 		D8D290DD2892FD1F002F8A2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D290DC2892FD1F002F8A2E /* Assets.xcassets */; };
 		D8D290E12892FD1F002F8A2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D290E02892FD1F002F8A2E /* Preview Assets.xcassets */; };
 		D8D290EB2892FD1F002F8A2E /* RPSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D290EA2892FD1F002F8A2E /* RPSTests.swift */; };
@@ -21,6 +19,7 @@
 		D8D291082893118C002F8A2E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291072893118C002F8A2E /* StartView.swift */; };
 		D8D291092893118C002F8A2E /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D291072893118C002F8A2E /* StartView.swift */; };
 		D8E7EFE42894B58E006C0F86 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E7EFE32894B58E006C0F86 /* GameView.swift */; };
+		D8E7EFE628970B5C006C0F86 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D8E7EFE528970B5C006C0F86 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +43,6 @@
 		D8D1F5AF28948CAE006DF828 /* PairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairView.swift; sourceTree = "<group>"; };
 		D8D290D52892FD1E002F8A2E /* RPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D290D82892FD1E002F8A2E /* RPSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSApp.swift; sourceTree = "<group>"; };
-		D8D290DA2892FD1E002F8A2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D8D290DC2892FD1F002F8A2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8D290DE2892FD1F002F8A2E /* RPS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RPS.entitlements; sourceTree = "<group>"; };
 		D8D290E02892FD1F002F8A2E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -57,6 +55,8 @@
 		D8D291062893034A002F8A2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D8D291072893118C002F8A2E /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		D8E7EFE32894B58E006C0F86 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D8E7EFE528970B5C006C0F86 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D8E7EFE728970B73006C0F86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,6 @@
 		D8D1F5AD28948544006DF828 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D8D290DA2892FD1E002F8A2E /* ContentView.swift */,
 				D8D291072893118C002F8A2E /* StartView.swift */,
 				D8D1F5AF28948CAE006DF828 /* PairView.swift */,
 				D8E7EFE32894B58E006C0F86 /* GameView.swift */,
@@ -98,6 +97,8 @@
 		D8D290CC2892FD1E002F8A2E = {
 			isa = PBXGroup;
 			children = (
+				D8E7EFE728970B73006C0F86 /* README.md */,
+				D8E7EFE528970B5C006C0F86 /* LICENSE */,
 				D8D290D72892FD1E002F8A2E /* RPS */,
 				D8D290E92892FD1F002F8A2E /* RPSTests */,
 				D8D290F32892FD1F002F8A2E /* RPSUITests */,
@@ -258,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E7EFE628970B5C006C0F86 /* LICENSE in Resources */,
 				D8D290E12892FD1F002F8A2E /* Preview Assets.xcassets in Resources */,
 				D8D290DD2892FD1F002F8A2E /* Assets.xcassets in Resources */,
 			);
@@ -285,7 +287,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D1F5B028948CAE006DF828 /* PairView.swift in Sources */,
-				D8D290DB2892FD1E002F8A2E /* ContentView.swift in Sources */,
 				D8D291042892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */,
 				D8D290D92892FD1E002F8A2E /* RPSApp.swift in Sources */,
 				D8E7EFE42894B58E006C0F86 /* GameView.swift in Sources */,
@@ -299,7 +300,6 @@
 			files = (
 				D8D291092893118C002F8A2E /* StartView.swift in Sources */,
 				D8D291052892FD49002F8A2E /* RPSMultipeerSession.swift in Sources */,
-				D8D1F5AE28948550006DF828 /* ContentView.swift in Sources */,
 				D8D290EB2892FD1F002F8A2E /* RPSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
