@@ -12,8 +12,9 @@ enum Result {
 }
 
 struct GameView: View {
-    @StateObject var rpsSession: RPSMultipeerSession
+    @EnvironmentObject var rpsSession: RPSMultipeerSession
     
+    @Binding var currentView: Int
     @State var timeLeft = 10
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -173,6 +174,7 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(rpsSession: RPSMultipeerSession(username: "TEST"))
+        GameView(currentView: .constant(0))
+            .environmentObject(RPSMultipeerSession(username: "TEST"))
     }
 }
