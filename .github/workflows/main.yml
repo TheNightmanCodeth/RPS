@@ -27,7 +27,7 @@ jobs:
           team-id: ${{ secrets.TEAM_ID }}
           output-path: build/RPS.ipa
           build-destination: generic/platform=iOS
-          build-sdk: iphoneos15.0
+          build-sdk: iphoneos15.2
           
       - name: Publish
         uses: Apple-Actions/upload-testflight-build@master
