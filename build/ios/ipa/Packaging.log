@@ -1,0 +1,129 @@
+2022-09-01 17:19:20 +0000 [MT] Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7f7fc944e6b0; archive(resolved)="<IDEArchive: 0x6000000e3180>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team(resolved)="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	Chain (15, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7f7fc944e6b0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionProcessingPipelineContext: 0x7f7fc944eff0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc9425ad0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc944b2d0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc922bc90; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc9284e40; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc870c8c0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc8707e90; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc9449900; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc94492b0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc97764b0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc9775bd0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc870a490; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="<IDEProvisioningBasicTeam: 0x600002570200; teamID='D44Y5BBJ48', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f7fc8707cc0; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600002607c20>", team="(null)">
+	<IDEDistributionContext: 0x7f7fc976b130; archive = "<IDEArchive: 0x6000000e3180>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7f7fc944e6b0>
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCreateDestRootStep
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCopyItemStep
+2022-09-01 17:19:20 +0000 [MT] Running /usr/bin/ditto '-V' '/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app'
+2022-09-01 17:19:20 +0000  >>> Copying /Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app 
+2022-09-01 17:19:20 +0000  copying file ./_CodeSignature/CodeResources ... 
+2022-09-01 17:19:20 +0000  2317 bytes for ./_CodeSignature/CodeResources
+2022-09-01 17:19:20 +0000  copying file ./RPS ... 
+2022-09-01 17:19:20 +0000  717472 bytes for ./RPS
+2022-09-01 17:19:20 +0000  copying file ./Assets.car ... 
+93727 bytes for ./Assets.car
+copying file ./embedded.mobileprovision ... 
+2022-09-01 17:19:20 +0000  11940 bytes for ./embedded.mobileprovision
+copying file ./Info.plist ... 
+1200 bytes for ./Info.plist
+copying file ./PkgInfo ... 
+8 bytes for ./PkgInfo
+2022-09-01 17:19:20 +0000 [MT] /usr/bin/ditto exited with 0
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionEmbedProfileStep
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionInfoPlistStep
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionItemRemovalStep
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionAppThinningPlistStep
+2022-09-01 17:19:20 +0000 [MT] Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCompileBitcodeStep
+2022-09-01 17:19:20 +0000 [MT] Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCodeSlimmingStep
+2022-09-01 17:19:20 +0000 [MT] Running /Applications/Xcode-13.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app/RPS' '-l' '-keep_cs' '-o' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app/RPS'
+2022-09-01 17:19:20 +0000 [MT] /Applications/Xcode-13.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCopyBCSymbolMapsStep
+2022-09-01 17:19:20 +0000 [MT] Running /usr/bin/ditto '-V' '/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/BCSymbolMaps/25F14510-9812-356A-84E3-131F1C27224C.bcsymbolmap' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/BCSymbolMaps/25F14510-9812-356A-84E3-131F1C27224C.bcsymbolmap'
+2022-09-01 17:19:20 +0000  >>> Copying /Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/BCSymbolMaps/25F14510-9812-356A-84E3-131F1C27224C.bcsymbolmap 
+2022-09-01 17:19:20 +0000  copying file ./25F14510-9812-356A-84E3-131F1C27224C.bcsymbolmap ... 
+2022-09-01 17:19:20 +0000  157725 bytes for ./25F14510-9812-356A-84E3-131F1C27224C.bcsymbolmap
+2022-09-01 17:19:20 +0000 [MT] /usr/bin/ditto exited with 0
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionSymbolsStep
+2022-09-01 17:19:20 +0000 [MT] Excluding symbols for RPS.app
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCopyAppleProvidedContentStep
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionAppThinningStep
+2022-09-01 17:19:20 +0000 [MT] Skipping step: IDEDistributionAppThinningStep because it said so
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionArchThinningStep
+2022-09-01 17:19:20 +0000 [MT] Running /Applications/Xcode-13.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app/RPS' '-verify_arch' 'arm64e'
+2022-09-01 17:19:20 +0000 [MT] /Applications/Xcode-13.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-09-01 17:19:20 +0000 [MT] Skipping architecture thinning for item "RPS" because arch "arm64e" wasn't found
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionODRStep
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionStripXattrsStep
+2022-09-01 17:19:20 +0000 [MT] Running /usr/bin/xattr '-crs' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app'
+2022-09-01 17:19:20 +0000 [MT] /usr/bin/xattr exited with 0
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCodesignStep
+2022-09-01 17:19:20 +0000 [MT] Entitlements for <IDEDistributionItem: 0x6000000db8a0; bundleID='me.jdiggity.RPS', path='<DVTFilePath:0x600000ff00e0:'/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000007f85f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001357e90; name='iPhone Distribution: Joe Diragi (D44Y5BBJ48)', hash='8AB3054EC2DD20F22F1FE72981CC09CA9865B5A2', serialNumber='3E18BD1E994720C1529839FE71A955D3', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2022-08-31 03:28:39 +0000''>', entitlements='{
+    "application-identifier" = "D44Y5BBJ48.me.jdiggity.RPS";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = D44Y5BBJ48;
+    "get-task-allow" = 0;
+}', teamID='D44Y5BBJ48', identifier='me.jdiggity.RPS', executablePath='<DVTFilePath:0x600000fe2220:'/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app/RPS'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "D44Y5BBJ48.me.jdiggity.RPS";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = D44Y5BBJ48;
+    "get-task-allow" = 0;
+}
+2022-09-01 17:19:20 +0000 [MT] Entitlements for <IDEDistributionItem: 0x6000000db8a0; bundleID='me.jdiggity.RPS', path='<DVTFilePath:0x600000ff00e0:'/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000007f85f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001357910; name='iPhone Distribution: Joe Diragi (D44Y5BBJ48)', hash='8AB3054EC2DD20F22F1FE72981CC09CA9865B5A2', serialNumber='3E18BD1E994720C1529839FE71A955D3', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2022-08-31 03:28:39 +0000''>', entitlements='{
+    "application-identifier" = "D44Y5BBJ48.me.jdiggity.RPS";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = D44Y5BBJ48;
+    "get-task-allow" = 0;
+}', teamID='D44Y5BBJ48', identifier='me.jdiggity.RPS', executablePath='<DVTFilePath:0x600000fe2220:'/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app/RPS'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "D44Y5BBJ48.me.jdiggity.RPS";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = D44Y5BBJ48;
+    "get-task-allow" = 0;
+}
+2022-09-01 17:19:20 +0000 [MT] Writing entitlements for <IDEDistributionItem: 0x6000000db8a0; bundleID='me.jdiggity.RPS', path='<DVTFilePath:0x600000ff00e0:'/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000007f85f0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600001357b20; name='iPhone Distribution: Joe Diragi (D44Y5BBJ48)', hash='8AB3054EC2DD20F22F1FE72981CC09CA9865B5A2', serialNumber='3E18BD1E994720C1529839FE71A955D3', certificateKinds='(
+    "1.2.840.113635.100.6.1.4"
+), issueDate='2022-08-31 03:28:39 +0000''>', entitlements='{
+    "application-identifier" = "D44Y5BBJ48.me.jdiggity.RPS";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = D44Y5BBJ48;
+    "get-task-allow" = 0;
+}', teamID='D44Y5BBJ48', identifier='me.jdiggity.RPS', executablePath='<DVTFilePath:0x600000fe2220:'/Users/builder/clone/build/ios/xcarchive/RPS_1oqbtndp.xcarchive/Products/Applications/RPS.app/RPS'>', hardenedRuntime='0'>'> to: /var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/entitlements~~~8PLRnJ
+2022-09-01 17:19:20 +0000 [MT] Running /usr/bin/codesign '-vvv' '--force' '--sign' '8AB3054EC2DD20F22F1FE72981CC09CA9865B5A2' '--entitlements' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/entitlements~~~8PLRnJ' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app'
+2022-09-01 17:19:20 +0000  /var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app: replacing existing signature
+2022-09-01 17:19:20 +0000  /var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app: signed app bundle with Mach-O thin (arm64) [me.jdiggity.RPS]
+2022-09-01 17:19:20 +0000 [MT] /usr/bin/codesign exited with 0
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionZipODRItemStep
+2022-09-01 17:19:20 +0000 [MT] Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCreateIPAStep
+2022-09-01 17:19:20 +0000 [MT] Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root' '/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Packages/RPS.ipa'
+2022-09-01 17:19:20 +0000  >>> Copying /var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root 
+2022-09-01 17:19:20 +0000  copying file ./BCSymbolMaps/25F14510-9812-356A-84E3-131F1C27224C.bcsymbolmap ... 
+2022-09-01 17:19:20 +0000  157725 bytes for ./BCSymbolMaps/25F14510-9812-356A-84E3-131F1C27224C.bcsymbolmap
+2022-09-01 17:19:20 +0000  copying file ./Payload/RPS.app/_CodeSignature/CodeResources ... 
+2022-09-01 17:19:20 +0000  2317 bytes for ./Payload/RPS.app/_CodeSignature/CodeResources
+2022-09-01 17:19:20 +0000  copying file ./Payload/RPS.app/RPS ... 
+2022-09-01 17:19:20 +0000  571504 bytes for ./Payload/RPS.app/RPS
+copying file ./Payload/RPS.app/Assets.car ... 
+2022-09-01 17:19:20 +0000  93727 bytes for ./Payload/RPS.app/Assets.car
+2022-09-01 17:19:20 +0000  copying file ./Payload/RPS.app/embedded.mobileprovision ... 
+2022-09-01 17:19:20 +0000  11940 bytes for ./Payload/RPS.app/embedded.mobileprovision
+2022-09-01 17:19:20 +0000  copying file ./Payload/RPS.app/Info.plist ... 
+2022-09-01 17:19:20 +0000  1200 bytes for ./Payload/RPS.app/Info.plist
+copying file ./Payload/RPS.app/PkgInfo ... 
+8 bytes for ./Payload/RPS.app/PkgInfo
+2022-09-01 17:19:20 +0000 [MT] /usr/bin/ditto exited with 0
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionAppStoreInformationStep
+2022-09-01 17:19:20 +0000 [MT] Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionGenerateProcessedDistributionItems
+2022-09-01 17:19:20 +0000 [MT] IDEDistributionItem init <DVTFilePath:0x600000f2cf50:'/var/folders/m7/h1mg7c7x40ddjz6mxjxm3htr0000gn/T/XcodeDistPipeline.~~~HKPRHz/Root/Payload/RPS.app'>
+2022-09-01 17:19:20 +0000 [MT] Processing step: IDEDistributionCreateManifestStep
+2022-09-01 17:19:20 +0000 [MT] Skipping step: IDEDistributionCreateManifestStep because it said so
