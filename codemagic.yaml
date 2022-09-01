@@ -4,6 +4,7 @@ workflows:
       xcode: 13.3
       groups:
         - MAC
+        - SHARED
     name: Build - macOS
     scripts:
       - name: Set up keychain
@@ -62,6 +63,7 @@ workflows:
       xcode: 13.3
       groups:
         - IOS
+        - SHARED
     name: Build - iOS
     scripts:
       - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
