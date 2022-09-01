@@ -3,7 +3,7 @@ workflows:
     environment:
       xcode: latest
       groups:
-        - iOS
+        - IOS
     name: Build RPS
     scripts:
       - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
