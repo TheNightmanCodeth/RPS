@@ -19,7 +19,7 @@ workflows:
         script: xcode-project use-profiles
       - name: Build ipa for distribution
         script: xcode-project build-ipa \
-                    --project "${XCODE_PROJECT?}" \
+                    --project "~/clone/RPS.xcodeproj" \
                     --scheme "${XCODE_SCHEME?}"
     artifacts:
       - build/ios/ipa/*.ipa
