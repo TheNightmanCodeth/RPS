@@ -25,6 +25,8 @@ jobs:
           code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
           team-id: ${{ secrets.TEAM_ID }}
           output-path: build/RPS.ipa
+          build-destination: generic/platform=iOS
+          build-sdk: iOS-15
           
       - name: Publish
         uses: Apple-Actions/upload-testflight-build@master
