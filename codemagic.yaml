@@ -1,10 +1,68 @@
 workflows:
-  build:
+  build-macOS:
     environment:
-      xcode: latest
+      xcode: 13.3
+      groups:
+        - MAC
+    name: Build - macOS
+    scripts:
+      - name: Set up keychain
+        script: keychain initialize
+      - name: Set up provisioning profiles from environment variables
+        script: |
+          PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
+          mkdir -p "$PROFILES_HOME"
+          PROFILE_PATH="$(mktemp "$PROFILES_HOME"/$(uuidgen).mobileprovision)"
+          echo ${CM_PROVISIONING_PROFILE_MAC} | base64 --decode > "$PROFILE_PATH"
+          echo "Saved provisioning profile $PROFILE_PATH"
+      - name: Set up signing certificate
+        script: |
+          echo $CM_CERTIFICATE_MAC | base64 --decode > /tmp/certificate.p12
+          if [ -z ${CM_CERTIFICATE_PASSWORD+x} ]; then
+              # The certificate is not password protected 😱
+              keychain add-certificates --certificate /tmp/certificate.p12
+          else
+              # The certificate is password protected 😌
+              keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD
+          fi
+
+          echo $CM_INSTALLER_CERT_MAC | base64 --decode > /tmp/installer_certificate.p12
+          if [ -z ${INSTALLER_CERTIFICATE_PASSWORD+x} ]; then
+              keychain add-certificates --certificate /tmp/installer_certificate.p12
+          else
+              keychain add-certificates --certificate /tmp/installer_certificate.p12 --certificate-password $INSTALLER_CERTIFICATE_PASSWORD
+          fi
+      - name: Set up code signing settings on Xcode project
+        script: xcode-project use-profiles
+      - name: Package application
+        script: |
+          set -x
+          APP_NAME=$(find $(pwd) -name "*.app")
+          cd $(dirname "$APP_NAME")
+
+          PACKAGE_NAME=$(basename "$APP_NAME" .app).pkg
+          xcrun productbuild --component "$APP_NAME" /Applications/ unsigned.pkg
+
+          INSTALLER_CERT_NAME=$(keychain list-certificates \
+            | jq '.[]
+            | select(.common_name
+            | contains("Mac Developer Installer"))
+            | .common_name' \
+            | xargs)
+
+          xcrun productsign --sign "$INSTALLER_CERT_NAME" unsigned.pkg "$PACKAGE_NAME"
+
+          rm -f unsigned.pkg
+
+    artifacts:
+      - build/macOS/pkg/*.pkg # This is probably wrong
+
+  build-iOS:
+    environment:
+      xcode: 13.3
       groups:
         - IOS
-    name: Build RPS
+    name: Build - iOS
     scripts:
       - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
         script: keychain initialize
@@ -33,5 +91,3 @@ workflows:
                     --scheme "${XCODE_SCHEME}"
     artifacts:
       - build/ios/ipa/*.ipa
-
-
