@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      # Check out repository as $GITHUB_WORKSPACE
+      - name: Checkout Source
+        uses: actions/checkout@v3
+        
+      - run: |
+          cd $GITHUB_WORKSPACE
+          mkdir build
+        
+      - name: Build RPS.ipa
+        uses: yukiarrr/ios-build-action@v1.5.0
+        with:
+          project-path: RPS.xcodeproj
+          p12-base64: ${{ secrets.P12 }}
+          mobileprovision-base64: ${{ secrets.MOBILEPROVISION }}
+          code-signing-identity: ${{ secrets.CODE_SIGNING_IDENTITY }}
+          team-id: ${{ secrets.TEAM_ID }}
+          output-path: build/RPS.ipa
+          
+      - name: Publish
+        uses: Apple-Actions/upload-testflight-build@master
+        with:
+          app-path: build/RPS.ipa
+          issuer-id: ${{ secrets.APPSTORE_ISSUER_ID }}
+          api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
+          api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+        
