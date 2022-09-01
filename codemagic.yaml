@@ -88,8 +88,8 @@ workflows:
       - name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles
       - name: Build ipa for distribution
-        script: xcode-project build-ipa \
-                    --project RPS.xcodeproj \
-                    --scheme "RPS (iOS)"
+        script: |
+          echo $(ls)
+          xcode-project build-ipa --project "RPS.xcodeproj" --scheme "RPS (iOS)"
     artifacts:
       - build/ios/ipa/*.ipa
