@@ -89,7 +89,7 @@ workflows:
         script: xcode-project use-profiles
       - name: Build ipa for distribution
         script: xcode-project build-ipa \
-                    --project "${XCODE_PROJECT}" \
-                    --scheme "${XCODE_SCHEME}"
+                    --project RPS.xcodeproj \
+                    --scheme "RPS (iOS)"
     artifacts:
       - build/ios/ipa/*.ipa
