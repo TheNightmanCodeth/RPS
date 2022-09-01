@@ -1,6 +1,25 @@
 workflows:
-  hello-world:
-    name: Hello world workflow
+  build:
+    environment:
+      xcode: latest
+      groups:
+        - iOS
+    name: Build RPS
     scripts:
-        - echo "Hello World!"
-
+      - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
+        script: keychain initialize
+      - name: Fetch signing files
+        script: | 
+          app-store-connect fetch-signing-files "$(xcode-project detect-bundle-id)" \
+            --type IOS_APP_STORE \
+            --create
+      - name: Set up signing certificate
+        script: keychain add-certificates
+      - name: Set up code signing settings on Xcode project
+        script: xcode-project use-profiles
+      - name: Build ipa for distribution
+        script: xcode-project build-ipa \
+                    --project "${XCODE_PROJECT?}" \
+                    --scheme "${XCODE_SCHEME?}"
+    artifacts:
+      - build/ios/ipa/*.ipa
