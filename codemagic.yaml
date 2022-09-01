@@ -8,18 +8,29 @@ workflows:
     scripts:
       - name: Set up keychain to be used for code signing using Codemagic CLI 'keychain' command
         script: keychain initialize
-      - name: Fetch signing files
-        script: | 
-          app-store-connect fetch-signing-files "$(xcode-project detect-bundle-id)" \
-            --type IOS_APP_STORE \
-            --create
+      - name: Set up provisioning profiles from environment variables
+        script: |
+          PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
+          mkdir -p "$PROFILES_HOME"
+          PROFILE_PATH="$(mktemp "$PROFILES_HOME"/$(uuidgen).mobileprovision)"
+          echo ${CM_PROVISIONING_PROFILE} | base64 --decode > "$PROFILE_PATH"
+          echo "Saved provisioning profile $PROFILE_PATH"
       - name: Set up signing certificate
-        script: keychain add-certificates
+        script: |
+          echo $CM_CERTIFICATE | base64 --decode > /tmp/certificate.p12
+          if [ -z ${CM_CERTIFICATE_PASSWORD+x} ]; then
+              # The certificate is not password protected 😱
+              keychain add-certificates --certificate /tmp/certificate.p12
+          else
+              # The certificate is password protected 😌
+              keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD
       - name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles
       - name: Build ipa for distribution
         script: xcode-project build-ipa \
-                    --project "~/clone/RPS.xcodeproj" \
-                    --scheme "${XCODE_SCHEME?}"
+                    --project "RPS.xcodeproj" \
+                    --scheme "RPS"
     artifacts:
       - build/ios/ipa/*.ipa
+
+
