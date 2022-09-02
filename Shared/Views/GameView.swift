@@ -27,6 +27,7 @@ struct GameView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
+                Spacer()
                 // Opponent - 🪨 📄 ✂️
                 Image(opponentMove.description)
                     .resizable()
@@ -117,6 +118,7 @@ struct GameView: View {
                         .buttonStyle(BorderlessButtonStyle())
                         .padding()
                 }
+                Spacer()
             }
             if (showResult) {
                 VStack(alignment: .center, spacing: 10) {

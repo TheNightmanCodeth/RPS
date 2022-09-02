@@ -40,6 +40,7 @@ struct StartView: View {
                 .padding([.horizontal], 75.0)
                 .padding(.bottom, 24)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(maxWidth: 500)
             Button("Continue →") {
                 rpsSession = RPSMultipeerSession(username: username)
                 currentView = 1

@@ -16,12 +16,27 @@ struct PairView: View {
         
     var body: some View {
         if (!rpsSession.paired) {
-            HStack {
+            VStack(alignment: .center) {
+                Text("Choose Your Opponent!")
+                    .padding(.horizontal, 20)
+                    .padding(.top, 40)
+                    .font(.largeTitle)
+                Text("Find your friend below to get started!")
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 10)
+                    .font(.subheadline)
                 List(rpsSession.availablePeers, id: \.self) { peer in
                     Button(peer.displayName) {
                         rpsSession.serviceBrowser.invitePeer(peer, to: rpsSession.session, withContext: nil, timeout: 30)
-                    }
-                }
+                    }.buttonStyle(BorderlessButtonStyle())
+                        .padding(.horizontal, 30)
+                        .padding(.vertical, 15)
+                        .foregroundColor(.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(12)
+                        .frame(width: 400, alignment: .center)
+                }.scrollContentBackgroundCompat(.hidden)
+                    .frame(maxWidth: 400, alignment: .center)
             }
             .alert("Received an invite from \(rpsSession.recvdInviteFrom?.displayName ?? "ERR")!", isPresented: $rpsSession.recvdInvite) {
                 Button("Accept invite") {

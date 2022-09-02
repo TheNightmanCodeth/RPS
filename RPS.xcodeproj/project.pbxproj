@@ -19,6 +19,8 @@
 		5A8F3C0928C1186F0044613C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8F3BF628C1186F0044613C /* Assets.xcassets */; };
 		5A8F3C1628C118B70044613C /* RPSMultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8F3C1528C118B70044613C /* RPSMultipeerSession.swift */; };
 		5A8F3C1728C118B70044613C /* RPSMultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8F3C1528C118B70044613C /* RPSMultipeerSession.swift */; };
+		D87240D428C27E5B00E37571 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87240D328C27E5B00E37571 /* Extensions.swift */; };
+		D87240D528C27E5B00E37571 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87240D328C27E5B00E37571 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 		D87240D028C13C3600E37571 /* RPS (macOS)Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RPS (macOS)Release.entitlements"; sourceTree = "<group>"; };
 		D87240D128C13CE600E37571 /* RPS--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RPS--iOS--Info.plist"; sourceTree = "<group>"; };
 		D87240D228C25DC800E37571 /* RPS--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RPS--macOS--Info.plist"; sourceTree = "<group>"; };
+		D87240D328C27E5B00E37571 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 				5A7A454D28C11B760008E9AE /* Views */,
 				5A8F3C1528C118B70044613C /* RPSMultipeerSession.swift */,
 				5A8F3BF628C1186F0044613C /* Assets.xcassets */,
+				D87240D328C27E5B00E37571 /* Extensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -207,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7A455228C11BAC0008E9AE /* PairView.swift in Sources */,
+				D87240D428C27E5B00E37571 /* Extensions.swift in Sources */,
 				5A8F3C1628C118B70044613C /* RPSMultipeerSession.swift in Sources */,
 				5A7A455B28C11C040008E9AE /* RPSApp.swift in Sources */,
 				5A7A455828C11BAC0008E9AE /* GameView.swift in Sources */,
@@ -219,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7A455328C11BAC0008E9AE /* PairView.swift in Sources */,
+				D87240D528C27E5B00E37571 /* Extensions.swift in Sources */,
 				5A8F3C1728C118B70044613C /* RPSMultipeerSession.swift in Sources */,
 				5A7A455C28C11C040008E9AE /* RPSApp.swift in Sources */,
 				5A7A455928C11BAC0008E9AE /* GameView.swift in Sources */,
