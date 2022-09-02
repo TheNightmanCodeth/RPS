@@ -33,6 +33,7 @@
 		5A8F3C1528C118B70044613C /* RPSMultipeerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPSMultipeerSession.swift; sourceTree = "<group>"; };
 		D87240D028C13C3600E37571 /* RPS (macOS)Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "RPS (macOS)Release.entitlements"; sourceTree = "<group>"; };
 		D87240D128C13CE600E37571 /* RPS--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RPS--iOS--Info.plist"; sourceTree = "<group>"; };
+		D87240D228C25DC800E37571 /* RPS--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RPS--macOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 		5A8F3BEE28C1186B0044613C = {
 			isa = PBXGroup;
 			children = (
+				D87240D228C25DC800E37571 /* RPS--macOS--Info.plist */,
 				D87240D128C13CE600E37571 /* RPS--iOS--Info.plist */,
 				D87240D028C13C3600E37571 /* RPS (macOS)Release.entitlements */,
 				5A8F3BF328C1186B0044613C /* Shared */,
@@ -348,6 +350,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RPS--iOS--Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "RPS uses the network to connect with your friend";
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "RPS uses the network to connect with your friend";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -382,6 +385,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RPS--iOS--Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "RPS uses the network to connect with your friend";
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "RPS uses the network to connect with your friend";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -418,7 +422,10 @@
 				DEVELOPMENT_TEAM = D44Y5BBJ48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RPS--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "RPS uses the network to connect with your friend";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "RPS uses the network to connect with your friend";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -447,7 +454,10 @@
 				DEVELOPMENT_TEAM = D44Y5BBJ48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RPS--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "RPS uses the network to connect with your friend";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "RPS uses the network to connect with your friend";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
