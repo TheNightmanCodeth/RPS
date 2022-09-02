@@ -32,7 +32,8 @@ extension List {
     @ViewBuilder
     func scrollContentBackgroundCompat(_ visibility: Visibility) -> some View {
         if #available(iOS 16.0, *), #available(macOS 13.0, *) {
-            self.scrollContentBackground(visibility)
+            // XCode 13 won't build with this. Need to wait for iOS 16 release
+            // self.scrollContentBackground(visibility)
         }
     }
 }
