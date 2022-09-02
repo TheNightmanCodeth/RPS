@@ -86,7 +86,7 @@ workflows:
               keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD
           fi
       - name: Increment build number
-        script: agvtool next-version -all
+        script: agvtool new-version -all $BUILD_NUMBER
       - name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles
       - name: Build ipa for distribution
