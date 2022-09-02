@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct RPSApp: App {
     
+    #if os(iOS)
     init() {
         if #unavailable(iOS 16.0) {
             UITableView.appearance().backgroundColor = .clear
         }
     }
+    #endif
     
     var body: some Scene {
         WindowGroup {

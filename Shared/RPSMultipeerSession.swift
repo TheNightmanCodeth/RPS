@@ -23,8 +23,8 @@ enum Move: String, CaseIterable, CustomStringConvertible {
 
 class RPSMultipeerSession: NSObject, ObservableObject {
     private let serviceType = "rps-service"
-    private var myPeerID: MCPeerID
     
+    public var myPeerID: MCPeerID
     public let serviceAdvertiser: MCNearbyServiceAdvertiser
     public let serviceBrowser: MCNearbyServiceBrowser
     public let session: MCSession
@@ -37,6 +37,7 @@ class RPSMultipeerSession: NSObject, ObservableObject {
     @Published var recvdInviteFrom: MCPeerID? = nil
     @Published var paired: Bool = false
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
+    @Published var rematch: Bool = false
     
     init(username: String) {
         let peerID = MCPeerID(displayName: username)
@@ -65,6 +66,16 @@ class RPSMultipeerSession: NSObject, ObservableObject {
             log.info("sendMove: \(String(describing: move)) to \(self.session.connectedPeers[0].displayName)")
             do {
                 try session.send(move.rawValue.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+            } catch {
+                log.error("Error sending: \(String(describing: error))")
+            }
+        }
+    }
+    
+    func sendRematch() {
+        if !session.connectedPeers.isEmpty {
+            do {
+                try session.send("rematch".data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
             } catch {
                 log.error("Error sending: \(String(describing: error))")
             }
@@ -153,6 +164,12 @@ extension RPSMultipeerSession: MCSessionDelegate {
             // We received a move from the opponent, tell the GameView
             DispatchQueue.main.async {
                 self.receivedMove = move
+            }
+        } else if let string = String(data: data, encoding: .utf8) {
+            if string == "rematch" {
+                self.rematch = true
+            } else {
+                log.info("didReceive invalid message \(string)")
             }
         } else {
             log.info("didReceive invalid value \(data.count) bytes")

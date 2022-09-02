@@ -15,7 +15,7 @@ struct PairView: View {
     var logger = Logger()
         
     var body: some View {
-        if (!rpsSession.paired) {
+        if (!rpsSession.paired && rpsSession.myPeerID.displayName != "6934DBD5-F883-41E8-B006-E49541A79E52") {
             VStack(alignment: .center) {
                 Text("Choose Your Opponent!")
                     .padding(.horizontal, 20)

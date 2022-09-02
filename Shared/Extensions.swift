@@ -31,13 +31,14 @@ extension View {
 extension List {
     @ViewBuilder
     func scrollContentBackgroundCompat(_ visibility: Visibility) -> some View {
-        if #available(iOS 16.0, *) {
+        if #available(iOS 16.0, *), #available(macOS 13.0, *) {
             self.scrollContentBackground(visibility)
         }
     }
 }
 
 extension Bool {
+    #if os(iOS)
     static var isIpad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
@@ -48,4 +49,5 @@ extension Bool {
         }
         return true
     }
+    #endif
 }

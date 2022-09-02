@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 enum Result {
     case win, loss, tie
@@ -23,6 +24,8 @@ struct GameView: View {
     @State var showResult: Bool = false
     @State var result: Result = .tie
     @State var resultMessage: String = ""
+    
+    @State var rematchReceiver: AnyCancellable?
     
     var body: some View {
         ZStack {
@@ -127,17 +130,30 @@ struct GameView: View {
                     Text("Would you like to play again?")
                         .fontWeight(.regular)
                     Button("Yes") {
+                        rpsSession.sendRematch()
                         showResult = false
-                        //TODO: Send restart message to peer, wait for response
+                        timer = timer.upstream.autoconnect()
                     }
                     Button("No") {
                         rpsSession.session.disconnect()
+                        if rpsSession.myPeerID.displayName == "6934DBD5-F883-41E8-B006-E49541A79E52" {
+                            currentView = 0
+                        }
                     }
                 }.zIndex(1)
                     .frame(width: 400, height: 500)
                     .background(Color.white)
                     .cornerRadius(12)
             }
+        }.onAppear {
+            rematchReceiver = rpsSession.$rematch.receive(on: DispatchQueue.main).sink { val in
+                if val {
+                    showResult = false
+                    timer = timer.upstream.autoconnect()
+                }
+            }
+        }.onDisappear {
+            rematchReceiver!.cancel()
         }
     }
     
