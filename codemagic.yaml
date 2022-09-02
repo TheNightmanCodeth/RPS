@@ -85,6 +85,8 @@ workflows:
               # The certificate is password protected 😌
               keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD
           fi
+      - name: Increment build number
+        script: agvtool next-version -all
       - name: Set up code signing settings on Xcode project
         script: xcode-project use-profiles
       - name: Build ipa for distribution
