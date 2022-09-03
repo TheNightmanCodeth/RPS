@@ -35,8 +35,10 @@ struct PairView: View {
                         .background(Color.accentColor)
                         .cornerRadius(12)
                         .frame(width: 400, alignment: .center)
-                }.scrollContentBackgroundCompat(.hidden)
-                    .frame(maxWidth: 400, alignment: .center)
+                        .listRowSeparator(.hidden)
+                }// .scrollContentBackgroundCompat(.hidden)
+                    .frame(maxWidth: 400)
+                    .listStyle(.inset)
             }
             .alert("Received an invite from \(rpsSession.recvdInviteFrom?.displayName ?? "ERR")!", isPresented: $rpsSession.recvdInvite) {
                 Button("Accept invite") {
