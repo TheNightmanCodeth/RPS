@@ -129,10 +129,10 @@ struct GameView: View {
                         .fontWeight(.heavy)
                     Text("Would you like to play again?")
                         .fontWeight(.regular)
+                        .foregroundColor(.primary)
                     Button("Yes") {
                         rpsSession.sendRematch()
-                        showResult = false
-                        timer = timer.upstream.autoconnect()
+                        resetGame()
                     }
                     Button("No") {
                         rpsSession.session.disconnect()
@@ -142,14 +142,13 @@ struct GameView: View {
                     }
                 }.zIndex(1)
                     .frame(width: 400, height: 500)
-                    .background(Color.white)
+                    .background(.background)
                     .cornerRadius(12)
             }
         }.onAppear {
             rematchReceiver = rpsSession.$rematch.receive(on: DispatchQueue.main).sink { val in
                 if val {
-                    showResult = false
-                    timer = timer.upstream.autoconnect()
+                    resetGame()
                 }
             }
         }.onDisappear {
@@ -187,6 +186,13 @@ struct GameView: View {
             // Invalid move somewhere
             return .tie
         }
+    }
+    
+    func resetGame() {
+        showResult = false
+        opponentMove = .unknown
+        currentMove = .unknown
+        timer = timer.upstream.autoconnect()
     }
 }
 
