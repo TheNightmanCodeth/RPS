@@ -167,7 +167,9 @@ extension RPSMultipeerSession: MCSessionDelegate {
             }
         } else if let string = String(data: data, encoding: .utf8) {
             if string == "rematch" {
-                self.rematch = true
+                DispatchQueue.main.async {
+                    self.rematch = true
+                }
             } else {
                 log.info("didReceive invalid message \(string)")
             }
